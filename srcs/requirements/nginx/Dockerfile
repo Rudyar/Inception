@@ -2,11 +2,10 @@ FROM debian:buster
 
 RUN apt-get update -y && \
 	apt-get install -y \
-	nginx openssl
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-RUN	mkdir -p /etc/nginx/ssl
+	nginx openssl && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* && \
+	mkdir -p /etc/nginx/ssl
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 

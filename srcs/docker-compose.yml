@@ -32,7 +32,7 @@ services:
 # A CHANGER !!!!!!!!!!!!!!!!!!!!!!
   mariadb:
     container_name: mariadb
-    image: mariadb
+    build: ./requirements/mariadb
     ports:
       - "3306:3306"
     env_file:
@@ -40,6 +40,8 @@ services:
     volumes:
       - db_volume:/var/lib/mysql
     restart: always
+    networks:
+      - inception
 
 
 volumes:

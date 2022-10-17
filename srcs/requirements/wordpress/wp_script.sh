@@ -1,12 +1,28 @@
 #!/bin/bash
+
+# add mysql
+# until mysqlcheck -A | grep ${DB_NAME} ; do
+# 	echo "J'attend\n"
+# 	echo "J'attend\n"
+# 	echo "J'attend\n"
+# 	echo "J'attend\n"
+# 	echo "J'attend\n"
+# 	sleep 10
+# done
+sleep 10
+echo "===========\n"
+mysqlcheck -A | grep ${DB_NAME}
+echo "===========\n"
+sleep 10
+
 wp core download --allow-root
 
-wp config create --dbname="${MYSQL_DATABASE}" --dbuser="${MYSQL_ROOT_USER}" --dbpass="${MYSQL_ROOT_PASSWORD}" --dbhost="${MYSQL_HOST:3306}"  --allow-root
+wp config create --dbname="$DB_NAME" --dbuser="$DB_ROOT_USER" --dbpass="$DB_ROOT_PASSWORD" --dbhost="$DB_HOST:3306"  --allow-root
 
-wp core install --url="arudy.42.fr" --title="arudy inception" --admin_user="${MYSQL_ROOT_USER}" --admin_password="${MYSQL_ROOT_PASSWORD}"\
-	--admin_email="arudy@student.42.fr" --skip_email --allow-root
+wp core install --url="$DOMAIN_NAME" --title="arudy inception" --admin_user="$DB_ROOT_USER" --admin_password="$DB_ROOT_PASSWORD"\
+	--admin_email="$DB_MAIL" --skip_email --allow-root
 
-wp config create --dbname="${MYSQL_DATABASE}" --dbuser="${MYSQL_USER}" --dbpass="${MYSQL_PASSWORD}" --allow-root
+# create user
 
+# Launch wp
 php-fpm7.3 -F -R
-# add mysql

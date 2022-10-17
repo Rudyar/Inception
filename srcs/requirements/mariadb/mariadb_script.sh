@@ -1,0 +1,19 @@
+#!/bin/bash
+
+touch file
+chmod 755 file
+
+cat << EOF > file
+CREATE DATABASE $DB_NAME;
+USE $DB_NAME;
+FLUSH PRIVILEGES ;
+GRANT ALL ON *.* TO 'root'@'%' identified by '$DB_ROOT_USER' WITH GRANT OPTION ;
+GRANT ALL ON *.* TO 'root'@'localhost' identified by '$DB_ROOT_USER' WITH GRANT OPTION ;
+SET PASSWORD FOR 'root'@'localhost'=PASSWORD('${DB_ROOT_USER}') ;
+FLUSH PRIVILEGES ;
+GRANT ALL ON \`$DB_NAME\`.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_USER_PASSWORD';
+DROP DATABASE IF EXISTS test ;
+FLUSH PRIVILEGES ;
+EOF
+
+mysqld
