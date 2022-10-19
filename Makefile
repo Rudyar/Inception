@@ -10,6 +10,7 @@ clean :	down
 
 fclean : clean
 	docker volume rm $$(docker volume ls -q)
+	sudo rm -rf /home/${USER}/data
 
 re : fclean all
 
