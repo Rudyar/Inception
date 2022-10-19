@@ -17,14 +17,18 @@ CREATE DATABASE $DB_NAME;
 FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PASSWORD' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_USER_PASSWORD';
-GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';
+CREATE USER '$DB_ADMIN'@'%' IDENTIFIED BY '$DB_ADMIN_PASSWORD';
+GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_ADMIN'@'%';
 DROP DATABASE IF EXISTS test;
 FLUSH PRIVILEGES;
 EOF
 
 # --bootstrap to execute sql script before any privileges exits
-	mysqld --bootstrap < file
+echo "0==============\n"
+	mysqld --bootstrap < file 2> /dev/null
+echo "1==============\n"
 	rm file
 fi
-mysqld
+echo "2==============\n"
+mysqld 2> /dev/null
+echo "3==============\n"
