@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# A virer !!!!
-DB_ROOT_USER=root_user
-DB_ROOT_PASSWORD=root_password
-DB_USER=db_user
-DB_USER_PASSWORD=password
-DB_NAME=wordpress
-DB_HOST=mariadb
-DB_MAIL=arudy@student.42.fr
-DOMAIN_NAME=arudy.42.fr
-
-
 if [ -d "/var/lib/mysql/$DB_NAME"]; then
 	echo "DB is already configured"
 else

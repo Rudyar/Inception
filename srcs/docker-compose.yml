@@ -29,7 +29,7 @@ services:
       - inception
 
 ###########
-# A CHANGER !!!!!!!!!!!!!!!!!!!!!!
+
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
@@ -43,6 +43,7 @@ services:
     networks:
       - inception
 
+###########
 
 volumes:
   db_volume:
@@ -57,6 +58,8 @@ volumes:
       type: none
       device: /home/${USER}/data/wordpress
       o: bind
+
+###########
 
 networks:
   inception:
