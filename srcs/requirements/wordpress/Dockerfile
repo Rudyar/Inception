@@ -13,7 +13,6 @@ COPY ./wp_script.sh /etc/
 
 RUN chmod +x /etc/wp_script.sh
 
-# A garder ?
 RUN chmod -R 777 /var/www/html
 WORKDIR /var/www/html
 

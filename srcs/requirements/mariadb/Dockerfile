@@ -7,8 +7,8 @@ COPY ./conf/my.cnf /etc/mysql/my.cnf
 COPY ./mariadb_script.sh /etc/
 
 RUN chmod +x /etc/mariadb_script.sh && \
-	mkdir -p /var/run/mysqld/ && \
-	chown -R mysql /var/run/mysqld && \
+	mkdir -p /run/mysqld/ && \
+	chown -R mysql /run/mysqld && \
 	chmod -R 755 /var/lib/mysql
 
 EXPOSE 3306

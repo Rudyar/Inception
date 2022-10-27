@@ -17,3 +17,4 @@ RUN	openssl req -x509 -newkey rsa:4096 -sha256 -nodes -days 365 \
 EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
+# Deamon off because nginx starts with insert mode by default
