@@ -23,5 +23,7 @@ ls :
 	docker container ls
 	@echo "------------------\n"
 	docker volume ls -q
+	@echo "------------------\n"
+	docker network ls
 
 .PHONY:	all down clean fclean re

@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress_volume:/var/www/html
+      - wp_volume:/var/www/html
     restart: always
     networks:
       - inception
@@ -25,7 +25,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress_volume:/var/www/html
+      - wp_volume:/var/www/html
     restart: always
     networks:
       - inception
@@ -51,10 +51,13 @@ volumes:
   db_volume:
     driver: local
     driver_opts:
+      # no special partition in the host machine
       type: none
-      device: /home/${USER}/data/mariadb
+      # where in the host machine
+      device: /home/${USER}/data/wordpress
+      # bind mount, because is a special path outside volume docker area, can access from host machine
       o: bind
-  wordpress_volume:
+  wp_volume:
     driver: local
     driver_opts:
       type: none
@@ -65,4 +68,5 @@ volumes:
 
 networks:
   inception:
+    name: inception-network
     driver: bridge
