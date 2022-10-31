@@ -49,12 +49,13 @@ services:
 
 volumes:
   db_volume:
+    # volumes are created on Docker host machine
     driver: local
     driver_opts:
       # no special partition in the host machine
       type: none
       # where in the host machine
-      device: /home/${USER}/data/wordpress
+      device: /home/${USER}/data/mariadb
       # bind mount, because is a special path outside volume docker area, can access from host machine
       o: bind
   wp_volume:

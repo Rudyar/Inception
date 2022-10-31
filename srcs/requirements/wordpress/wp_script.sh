@@ -24,6 +24,6 @@ echo "\nVisit https://arudy.42.fr"
 # Launch wp
 php-fpm7.3 -F
 
-# show user db wp : conect to mariadb container, mysql with db_admin
+# show user db wp : conect to mariadb container, mysql with db_admin (mysql -u mariadb -p)
 # show databases, use wordpress, show tables, show columns from wp_users
 # select user_login from wp_users
