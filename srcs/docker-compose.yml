@@ -20,8 +20,6 @@ services:
     build: ./requirements/wordpress
     depends_on:
       - mariadb
-    ports:
-      - "9000:9000"
     env_file:
       - .env
     volumes:
@@ -35,8 +33,6 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    ports:
-      - "3306:3306"
     env_file:
       - .env
     volumes:

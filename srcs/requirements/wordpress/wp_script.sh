@@ -27,3 +27,6 @@ php-fpm7.3 -F
 # show user db wp : conect to mariadb container, mysql with db_admin (mysql -u mariadb -p)
 # show databases, use wordpress, show tables, show columns from wp_users
 # select user_login from wp_users
+# Connect to wp container, try "mysql -h DB_HOST -u DB_ADMIN -p", it must works
+# From host machine "mysql -h 127.0.0.1 -u root -p", it must not works
+# From host machine "mysql -h 127.0.0.1 -u DB_ADMIN -p", it must not works
