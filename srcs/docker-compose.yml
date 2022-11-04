@@ -1,8 +1,9 @@
 version: '3'
 services:
   nginx:
-    container_name: nginx
     build: ./requirements/nginx
+    image: nginx
+    container_name: nginx
     depends_on:
       - wordpress
     ports:
@@ -16,8 +17,9 @@ services:
 ###########
 
   wordpress:
-    container_name: wordpress
     build: ./requirements/wordpress
+    image: wordpress
+    container_name: wordpress
     depends_on:
       - mariadb
     env_file:
@@ -31,8 +33,9 @@ services:
 ###########
 
   mariadb:
-    container_name: mariadb
     build: ./requirements/mariadb
+    image: mariadb
+    container_name: mariadb
     env_file:
       - .env
     volumes:

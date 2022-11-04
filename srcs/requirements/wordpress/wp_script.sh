@@ -21,7 +21,7 @@ fi
 
 echo "\nVisit https://arudy.42.fr"
 
-# Launch wp
+# Launch wp in foreground
 php-fpm7.3 -F
 
 # show user db wp : conect to mariadb container, mysql with db_admin (mysql -u mariadb -p)
